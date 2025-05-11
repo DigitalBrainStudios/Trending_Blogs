@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+# Re-run after reset: save updated HTML again
+updated_html_with_actions = """<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -26,20 +27,20 @@
     <h1>Trending Blogs</h1>
     <nav>
       <a href="#">Home</a>
-      <a href="#">Trending Stories</a>
-      <a href="#">Latest News</a>
-      <a href="#">Interesting Facts</a>
+      <a href="#trending">Trending Stories</a>
+      <a href="#news">Latest News</a>
+      <a href="#facts">Interesting Facts</a>
       <a href="#">Blog</a>
-      <a href="#">Contact</a>
+      <a href="#subscribe">Contact</a>
     </nav>
   </header>
   <section class="hero">
     <h1>Discover What's Happening Around the World</h1>
     <p>Read the most talked-about stories, latest news updates, and mind-blowing facts all in one place.</p>
-    <button>Read Blogs</button>
-    <button>Subscribe Now</button>
+    <button onclick="location.href='#trending'">Read Blogs</button>
+    <button onclick="location.href='#subscribe'">Subscribe Now</button>
   </section>
-  <section class="section-container">
+  <section class="section-container" id="trending">
     <div class="section">
       <h2>Trending Stories</h2>
       <ul>
@@ -48,7 +49,7 @@
         <li>Global climate protests</li>
       </ul>
     </div>
-    <div class="section">
+    <div class="section" id="news">
       <h2>Latest News</h2>
       <ul>
         <li>New tech policies rolled out</li>
@@ -56,7 +57,7 @@
         <li>International summit highlights</li>
       </ul>
     </div>
-    <div class="section">
+    <div class="section" id="facts">
       <h2>Interesting Facts</h2>
       <ul>
         <li>Animals with surprising skills</li>
@@ -69,11 +70,13 @@
     <h2>Featured Blog of the Week</h2>
     <p><strong>Why octopuses are more intelligent than you think</strong> — A fascinating dive into the minds of sea creatures.</p>
   </section>
-  <section class="newsletter">
+  <section class="newsletter" id="subscribe">
     <h2>Stay Updated!</h2>
     <p>Get fresh blogs and facts delivered to your inbox every week.</p>
-    <input type="email" placeholder="Enter your email" />
-    <button>Subscribe</button>
+    <form action="https://example.com/subscribe" method="POST">
+      <input type="email" placeholder="Enter your email" name="email" required />
+      <button type="submit">Subscribe</button>
+    </form>
   </section>
   <footer>
     <p>© 2025 Trending Blogs</p>
@@ -85,3 +88,4 @@
   </footer>
 </body>
 </html>
+"""
